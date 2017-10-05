@@ -5,18 +5,22 @@ import { HttpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { PaginaComponent } from './components/pagina/pagina.component';
 
 import {BASE_URL} from "./app.tokens";
 import { OAuthModule } from "angular-oauth2-oidc";
 
 import { appRouting } from "./app.routes";
+import { IlumnoComponent } from './components/ilumno/ilumno.component';
+
+import { APP_CONFIG, AppConfig } from './app.config';
+import { DomseguroPipe } from "./components/ilumno/domseguro.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PaginaComponent
+    IlumnoComponent,
+    DomseguroPipe   
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ import { appRouting } from "./app.routes";
     appRouting
   ],
   providers: [
-    { provide: BASE_URL, useValue: "https://hpg-keycloak.northeurope.cloudapp.azure.com:8443"}
+    { provide: BASE_URL, useValue: "https://hpg-keycloak.northeurope.cloudapp.azure.com:8443"},
+    { provide: APP_CONFIG, useValue: AppConfig }
   ],
   bootstrap: [AppComponent]
 })
