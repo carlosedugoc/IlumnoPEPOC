@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OAuthService} from "angular-oauth2-oidc";
 import { Router } from "@angular/router";
+import { debug } from 'util';
 
 @Component({
     selector:'app-home',
@@ -13,15 +14,20 @@ export class HomeComponent implements OnInit {
     loginFailed: boolean = false;
 
     constructor(private oauthService: OAuthService, private router:Router) {
+        debugger;
         let token = sessionStorage.getItem('access_token')
         console.log('token',token)
         if (token){
             this.router.navigate(['ilumno'])
         }
+        else
+        {
+            this.login()
+        }
     }
 
     login() {
-        this.oauthService.clientId = "2ubSMuYIORmBqNK01qxs4EZOQ0Ea";
+        this.oauthService.clientId = "qAnYSzfC4Uf0B4_UqK4JjfDCpQQa";
         this.oauthService.initImplicitFlow();
     }
 
@@ -37,7 +43,7 @@ export class HomeComponent implements OnInit {
 
     loginWithPassword() {
 
-        this.oauthService.clientId = "2ubSMuYIORmBqNK01qxs4EZOQ0Ea";
+        this.oauthService.clientId = "qAnYSzfC4Uf0B4_UqK4JjfDCpQQa";
 
         this
             .oauthService
@@ -55,6 +61,9 @@ export class HomeComponent implements OnInit {
             })
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+
+
+    }
 
 }

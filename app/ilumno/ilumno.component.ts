@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { APP_CONFIG, IAppConfig } from '../app.config';
 import { IlumnoService } from "./ilumno.service";
+import { OAuthService } from "angular-oauth2-oidc";
+import { debug } from 'util';
 
 @Component({
     selector: 'app-ilumno',
@@ -8,14 +10,18 @@ import { IlumnoService } from "./ilumno.service";
     providers: [IlumnoService]
 })
 export class IlumnoComponent implements OnInit {
-    url:string
+    url: string
 
-    constructor(private is:IlumnoService) {
-        this.url= is.gerURL()
-     }
+    constructor(private oauthService: OAuthService, private is: IlumnoService) {
+        debugger;
+        this.url = is.gerURL()
+    }
 
-    ngOnInit() { 
+    ngOnInit() {
 
     }
 
+    logout() {
+        this.oauthService.logOut(false);
+    }
 }

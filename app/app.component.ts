@@ -49,14 +49,15 @@ export class AppComponent {
         /* Implicit Flow without discovery document*/
         // Login-Url https://apimdev.cloudapp.net:9443/oauth2/authorize
         // https://iam.ilumno.com:9443/oauth2/authorize
-        this.oauthService.loginUrl = "https://iam.ilumno.com:9443/oauth2/authorize"; //Id-Provider?
+        //this.oauthService.loginUrl = "https://iam.ilumno.com:9443/oauth2/authorize"; //Id-Provider?
+        this.oauthService.loginUrl = "https://kcq-iamapp01.ilumno.net:9443/oauth2/authorize"; //Id-Provider?
 
         // URL of the SPA to redirect the user to after login
         this.oauthService.redirectUri = window.location.origin + "/index.html";
 
         // The SPA's id. Register SPA with this id at the auth-server
-        this.oauthService.clientId = "2ubSMuYIORmBqNK01qxs4EZOQ0Ea";
-
+        this.oauthService.clientId = "qAnYSzfC4Uf0B4_UqK4JjfDCpQQa";
+                                     
         // set the scope for the permissions the client should request
         this.oauthService.scope = "openid";
 
@@ -69,7 +70,8 @@ export class AppComponent {
         this.oauthService.setStorage(sessionStorage);
 
         // To also enable single-sign-out set the url for your auth-server's logout-endpoint here
-        this.oauthService.logoutUrl = "https://iam.ilumno.com:9443/oidc/logout";
+        //this.oauthService.logoutUrl = "https://iam.ilumno.com:9443/oidc/logout";
+        this.oauthService.logoutUrl = "https://kcq-iamapp01.ilumno.net:9443/oidc/logout";
 
         // This method just tries to parse the token(s) within the url when
         // the auth-server redirects the user back to the web-app
