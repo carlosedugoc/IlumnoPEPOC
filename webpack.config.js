@@ -34,7 +34,6 @@ module.exports = {
     },
     devServer: {
         inline:true,
-        host:'10.75.8.112',
         port: 8085,
         historyApiFallback: true,
         watchOptions: {

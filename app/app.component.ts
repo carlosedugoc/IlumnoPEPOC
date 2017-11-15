@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
+import { debug } from 'util';
 
 @Component({
     selector: 'flight-app',
@@ -56,7 +57,7 @@ export class AppComponent {
         this.oauthService.redirectUri = window.location.origin + "/index.html";
 
         // The SPA's id. Register SPA with this id at the auth-server
-        this.oauthService.clientId = "qAnYSzfC4Uf0B4_UqK4JjfDCpQQa";
+        this.oauthService.clientId = "tb79f9QZ4j77P3kqSwCnZVVTd9ga";
                                      
         // set the scope for the permissions the client should request
         this.oauthService.scope = "openid";
@@ -64,6 +65,8 @@ export class AppComponent {
         // set to true, to receive also an id_token via OpenId Connect (OIDC) in addition to the
         // OAuth2-based access_token
         this.oauthService.oidc = true;
+        
+        debugger;
 
         // Use setStorage to use sessionStorage or another implementation of the TS-type Storage
         // instead of localStorage

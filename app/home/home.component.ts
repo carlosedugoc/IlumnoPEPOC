@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
     loginFailed: boolean = false;
 
     constructor(private oauthService: OAuthService, private router:Router) {
-        debugger;
         let token = sessionStorage.getItem('access_token')
         console.log('token',token)
         if (token){
@@ -27,7 +26,7 @@ export class HomeComponent implements OnInit {
     }
 
     login() {
-        this.oauthService.clientId = "qAnYSzfC4Uf0B4_UqK4JjfDCpQQa";
+        this.oauthService.clientId = "tb79f9QZ4j77P3kqSwCnZVVTd9ga";
         this.oauthService.initImplicitFlow();
     }
 
@@ -43,7 +42,7 @@ export class HomeComponent implements OnInit {
 
     loginWithPassword() {
 
-        this.oauthService.clientId = "qAnYSzfC4Uf0B4_UqK4JjfDCpQQa";
+        this.oauthService.clientId = "tb79f9QZ4j77P3kqSwCnZVVTd9ga";
 
         this
             .oauthService
