@@ -14,51 +14,51 @@ export class HomeComponent implements OnInit {
     loginFailed: boolean = false;
 
     constructor(private oauthService: OAuthService, private router:Router) {
-        let token = sessionStorage.getItem('access_token')
-        console.log('token',token)
-        if (token){
-            this.router.navigate(['ilumno'])
-        }
-        else
-        {
-            this.login()
-        }
+        // let token = sessionStorage.getItem('access_token')
+        // console.log('token',token)
+        // if (token){
+        //     this.router.navigate(['ilumno'])
+        // }
+        // else
+        // {
+        //     this.login()
+        // }
     }
 
-    login() {
-        this.oauthService.clientId = "tb79f9QZ4j77P3kqSwCnZVVTd9ga";
-        this.oauthService.initImplicitFlow();
-    }
+    // login() {
+    //     this.oauthService.clientId = "aeemiW1RZu4nIYl2frJEPnxN9wQa";
+    //     this.oauthService.initImplicitFlow();
+    // }
 
-    logout() {
-        this.oauthService.logOut();
-    }
+    // logout() {
+    //     this.oauthService.logOut();
+    // }
 
-    get givenName() {
-        var claims = this.oauthService.getIdentityClaims();
-        if (!claims) return null;
-        return claims.given_name;
-    }
+    // get givenName() {
+    //     var claims = this.oauthService.getIdentityClaims();
+    //     if (!claims) return null;
+    //     return claims.given_name;
+    // }
 
-    loginWithPassword() {
+    // loginWithPassword() {
 
-        this.oauthService.clientId = "tb79f9QZ4j77P3kqSwCnZVVTd9ga";
+    //     this.oauthService.clientId = "aeemiW1RZu4nIYl2frJEPnxN9wQa";
 
-        this
-            .oauthService
-            .fetchTokenUsingPasswordFlowAndLoadUserProfile(this.userName, this.password)
-            .then(() => {
-                console.debug('successfully logged in');
-                this.loginFailed = false;
-            })
-            .catch((err) => {
-                console.error('error logging in', err);
-                this.loginFailed = true;
-            })
-            .then(() => {
-                this.oauthService.clientId = "angular-app-1";
-            })
-    }
+    //     this
+    //         .oauthService
+    //         .fetchTokenUsingPasswordFlowAndLoadUserProfile(this.userName, this.password)
+    //         .then(() => {
+    //             console.debug('successfully logged in');
+    //             this.loginFailed = false;
+    //         })
+    //         .catch((err) => {
+    //             console.error('error logging in', err);
+    //             this.loginFailed = true;
+    //         })
+    //         .then(() => {
+    //             this.oauthService.clientId = "angular-app-1";
+    //         })
+    // }
 
     ngOnInit() { 
 

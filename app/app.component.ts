@@ -57,7 +57,7 @@ export class AppComponent {
         this.oauthService.redirectUri = window.location.origin + "/index.html";
 
         // The SPA's id. Register SPA with this id at the auth-server
-        this.oauthService.clientId = "tb79f9QZ4j77P3kqSwCnZVVTd9ga";
+        this.oauthService.clientId = "aeemiW1RZu4nIYl2frJEPnxN9wQa";
                                      
         // set the scope for the permissions the client should request
         this.oauthService.scope = "openid";
@@ -81,7 +81,36 @@ export class AppComponent {
         // It dosn't send the user the the login page
         this.oauthService.tryLogin({});
 
+
+        let token = sessionStorage.getItem('access_token')
+        console.log('token',token)
+        if (token){
+            //this.router.navigate(['ilumno'])
+            alert("ya está logueado");
+        }
+        else
+        {
+            this.login()
+        }
+
     }
+
+    login() {
+        this.oauthService.clientId = "aeemiW1RZu4nIYl2frJEPnxN9wQa";
+        this.oauthService.initImplicitFlow();
+    }
+
+    logout() {
+        this.oauthService.logOut();
+    }
+
+    get givenName() {
+        var claims = this.oauthService.getIdentityClaims();
+        if (!claims) return null;
+        return claims.given_name;
+    }
+
+   
 
 }
 
